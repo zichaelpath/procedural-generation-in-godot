@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://houses/house_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://houses/plan_viewer.gd" id="2_viewer"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
+sky_top_color = Color(0.25, 0.45, 0.75, 1)
+sky_horizon_color = Color(0.75, 0.82, 0.9, 1)
+ground_bottom_color = Color(0.05, 0.09, 0.14, 1)
+ground_horizon_color = Color(0.55, 0.65, 0.75, 1)
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("ProceduralSkyMaterial_1")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 0.35
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.35, 0.35, 0.37, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1"]
+material = SubResource("StandardMaterial3D_ground")
+size = Vector2(40, 40)
+
+[node name="HousesStage" type="Node3D"]
+script = ExtResource("1_stage")
+step = 0
+master_seed = 20261119
+
+[node name="PlanLab" type="CanvasLayer" parent="."]
+
+[node name="PlanViewer" type="Control" parent="PlanLab"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_viewer")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TitleLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 1264.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="FlowLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 1264.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="CertLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 68.0
+offset_right = 1264.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="House" type="Node3D" parent="World"]
+
+[node name="CameraRig" type="Node3D" parent="World"]
+
+[node name="Camera" type="Camera3D" parent="World/CameraRig"]
+transform = Transform3D(0.8944, 0, -0.4472, -0.2491, 0.8305, -0.4983, 0.3714, 0.5571, 0.7428, 6, 9, 12)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.866, 0, 0.5, 0.383, 0.6428, -0.6634, -0.3214, 0.766, 0.5567, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.07, 4.5)
+mesh = SubResource("PlaneMesh_1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")

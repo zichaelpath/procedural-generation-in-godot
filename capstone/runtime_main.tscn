@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://capstone/runtime_loader.gd" id="1_loader"]
+[ext_resource type="Script" path="res://capstone/world_builder.gd" id="2_builder"]
+[ext_resource type="Script" path="res://terrain/chunk_manager.gd" id="3_mgr"]
+[ext_resource type="ShaderMaterial" path="res://terrain/splat_material.tres" id="4_splat"]
+
+[node name="RuntimeMain" type="Node"]
+script = ExtResource("1_loader")
+
+[node name="WorldBuilder" type="Node3D" parent="."]
+script = ExtResource("2_builder")
+
+[node name="WorldRoot" type="Node3D" parent="WorldBuilder"]
+
+[node name="Terrain" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="Water" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="Plants" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="Roads" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="Buildings" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="Entrances" type="Node3D" parent="WorldBuilder/WorldRoot"]
+
+[node name="ChunkManager" type="Node3D" parent="."]
+script = ExtResource("3_mgr")
+terrain_material = ExtResource("4_splat")
+debug_tint_chunks = false

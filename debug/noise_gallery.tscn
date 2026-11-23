@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/noise_gallery.gd" id="1_wu2yi"]
+
+[node name="NoiseGallery" type="Control" unique_id=281295360]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_wu2yi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2073299817]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_constants/separation = 16
+
+[node name="VBoxValue" type="VBoxContainer" parent="HBoxContainer" unique_id=1310270823]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxValue" unique_id=1568000300]
+layout_mode = 2
+text = "Value"
+
+[node name="ValueRect" type="TextureRect" parent="HBoxContainer/VBoxValue" unique_id=1908097983]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxPerlin" type="VBoxContainer" parent="HBoxContainer" unique_id=1232196593]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxPerlin" unique_id=820100547]
+layout_mode = 2
+text = "Perlin / Gradient"
+
+[node name="PerlinRect" type="TextureRect" parent="HBoxContainer/VBoxPerlin" unique_id=1149959622]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxSimplex" type="VBoxContainer" parent="HBoxContainer" unique_id=172342018]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxSimplex" unique_id=42809439]
+layout_mode = 2
+text = "Simplex"
+
+[node name="SimplexRect" type="TextureRect" parent="HBoxContainer/VBoxSimplex" unique_id=1485148653]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1

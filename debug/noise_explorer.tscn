@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/noise_explorer.gd" id="1_f0mst"]
+
+[node name="NoiseExplorer" type="Control" unique_id=1068748669]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_f0mst")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=59198780]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 308.0
+theme_override_constants/separation = 16
+
+[node name="VBoxValue" type="VBoxContainer" parent="HBoxContainer" unique_id=598250262]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxValue" unique_id=1627630442]
+layout_mode = 2
+text = "Value"
+
+[node name="ValueRect" type="TextureRect" parent="HBoxContainer/VBoxValue" unique_id=1539060103]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxPerlin" type="VBoxContainer" parent="HBoxContainer" unique_id=383642418]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxPerlin" unique_id=1843444247]
+layout_mode = 2
+text = "Perlin / Gradient"
+
+[node name="PerlinRect" type="TextureRect" parent="HBoxContainer/VBoxPerlin" unique_id=763383343]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxSimplex" type="VBoxContainer" parent="HBoxContainer" unique_id=1766643015]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxSimplex" unique_id=427567773]
+layout_mode = 2
+text = "Simplex"
+
+[node name="SimplexRect" type="TextureRect" parent="HBoxContainer/VBoxSimplex" unique_id=1442578544]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1507690039]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 324.0
+offset_right = 1264.0
+offset_bottom = 704.0
+theme_override_constants/separation = 16
+
+[node name="LineRect" type="TextureRect" parent="HBoxContainer2" unique_id=870264932]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="SliceRect" type="TextureRect" parent="HBoxContainer2" unique_id=1036502532]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="CellularRect" type="TextureRect" parent="HBoxContainer2" unique_id=347439880]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1

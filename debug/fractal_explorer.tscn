@@ -1,0 +1,76 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/fractal_explorer.gd" id="1_g0psp"]
+
+[node name="FractalExplorer" type="Node3D" unique_id=405844292]
+script = ExtResource("1_g0psp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=467181092]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=767079420]
+transform = Transform3D(1, 0, 0, 0, 0.7880108, 0.6156615, 0, -0.6156615, 0.7880108, 0, 55, 70)
+current = true
+
+[node name="TerrainMesh" type="MeshInstance3D" parent="." unique_id=1213945804]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=34998030]
+
+[node name="OctavePreview" type="TextureRect" parent="CanvasLayer" unique_id=1356554970]
+custom_minimum_size = Vector2(256, 256)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="LacunaritySlider" type="HSlider" parent="CanvasLayer" unique_id=1050471611]
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 272.0
+offset_bottom = 312.0
+min_value = 1.5
+max_value = 3.0
+step = 0.05
+value = 2.0
+
+[node name="GainSlider" type="HSlider" parent="CanvasLayer" unique_id=1264600579]
+offset_left = 16.0
+offset_top = 320.0
+offset_right = 272.0
+offset_bottom = 344.0
+min_value = 0.2
+max_value = 0.8
+step = 0.05
+value = 0.5
+
+[node name="Oct1" type="Button" parent="CanvasLayer" unique_id=1927156895]
+offset_left = 1024.0
+offset_top = 16.0
+offset_right = 1080.0
+offset_bottom = 52.0
+text = "1"
+
+[node name="Oct2" type="Button" parent="CanvasLayer" unique_id=812080814]
+offset_left = 1088.0
+offset_top = 16.0
+offset_right = 1144.0
+offset_bottom = 52.0
+text = "2"
+
+[node name="Oct4" type="Button" parent="CanvasLayer" unique_id=464170158]
+offset_left = 1152.0
+offset_top = 16.0
+offset_right = 1208.0
+offset_bottom = 52.0
+text = "4"
+
+[node name="Oct8" type="Button" parent="CanvasLayer" unique_id=1146658197]
+offset_left = 1216.0
+offset_top = 16.0
+offset_right = 1272.0
+offset_bottom = 52.0
+text = "8"

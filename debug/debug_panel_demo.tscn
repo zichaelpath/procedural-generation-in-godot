@@ -1,0 +1,75 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/debug_panel_demo.gd" id="1_4ygvc"]
+
+[node name="DebugPanelDemo" type="Control" unique_id=1621748970]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_4ygvc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2095926654]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -56.0
+theme_override_constants/separation = 16
+
+[node name="VBoxGray" type="VBoxContainer" parent="HBoxContainer" unique_id=1148701660]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxGray" unique_id=1352311098]
+layout_mode = 2
+text = "Grayscale"
+
+[node name="GrayRect" type="TextureRect" parent="HBoxContainer/VBoxGray" unique_id=10665200]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxHeight" type="VBoxContainer" parent="HBoxContainer" unique_id=666225780]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxHeight" unique_id=521640324]
+layout_mode = 2
+text = "Height ramp"
+
+[node name="HeightRect" type="TextureRect" parent="HBoxContainer/VBoxHeight" unique_id=1919139109]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="VBoxMoisture" type="VBoxContainer" parent="HBoxContainer" unique_id=1748820829]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxMoisture" unique_id=2105154683]
+layout_mode = 2
+text = "Moisture ramp"
+
+[node name="MoistureRect" type="TextureRect" parent="HBoxContainer/VBoxMoisture" unique_id=1359496034]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+
+[node name="StatsLabel" type="Label" parent="." unique_id=2050946361]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 668.0
+offset_right = 1216.0
+offset_bottom = 696.0

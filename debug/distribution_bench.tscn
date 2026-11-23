@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/distribution_bench.gd" id="1_kk76g"]
+
+[node name="DistributionBench" type="Node3D" unique_id=1270157728]
+script = ExtResource("1_kk76g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=834726486]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1030652932]
+transform = Transform3D(1, 0, 0, 0, 0.66913056, 0.74314487, 0, -0.74314487, 0.66913056, 0, 26, 30)
+current = true
+
+[node name="UniformRow" type="Node3D" parent="." unique_id=1828585465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="BellRow" type="Node3D" parent="." unique_id=632560634]
+
+[node name="WeightedRow" type="Node3D" parent="." unique_id=1958448652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="HaltonRow" type="Node3D" parent="." unique_id=671814873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=672142740]
+
+[node name="HistogramLabel" type="Label" parent="CanvasLayer" unique_id=1746300232]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1116.0
+offset_bottom = 112.0

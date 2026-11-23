@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://debug/grid_playground.gd" id="1_bheb8"]
+
+[node name="GridPlayground" type="Control" unique_id=7668621]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_bheb8")
+
+[node name="MooreToggle" type="CheckBox" parent="." unique_id=285111020]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 512.0
+offset_right = 316.0
+offset_bottom = 544.0
+text = "Moore (8-way) neighbours"
+
+[node name="CellLabel" type="Label" parent="." unique_id=142346627]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 512.0
+offset_right = 800.0
+offset_bottom = 544.0

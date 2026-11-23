@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3]
+
+[ext_resource type="Shader" path="res://terrain/terrain.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://terrain/textures/grass.png" id="2_grass"]
+[ext_resource type="Texture2D" path="res://terrain/textures/rock.png" id="3_rock"]
+[ext_resource type="Texture2D" path="res://terrain/textures/sand.png" id="4_sand"]
+[ext_resource type="Texture2D" path="res://terrain/textures/snow.png" id="5_snow"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/grass_tex = ExtResource("2_grass")
+shader_parameter/rock_tex = ExtResource("3_rock")
+shader_parameter/sand_tex = ExtResource("4_sand")
+shader_parameter/snow_tex = ExtResource("5_snow")
+shader_parameter/tex_scale = 0.06
+shader_parameter/snow_start = 20.0
+shader_parameter/rock_slope = 0.55
+shader_parameter/tint_strength = 0.55
+shader_parameter/tint = Color(1, 1, 1, 1)

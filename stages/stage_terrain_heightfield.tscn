@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://terrain/terrain_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://terrain/terrain_mesh.gd" id="2_mesh"]
+[ext_resource type="Script" path="res://terrain/chunk_manager.gd" id="3_mgr"]
+[ext_resource type="Script" path="res://terrain/fly_camera.gd" id="4_fly"]
+[ext_resource type="ShaderMaterial" path="res://terrain/splat_material.tres" id="5_splat"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
+sky_top_color = Color(0.25, 0.45, 0.75, 1)
+sky_horizon_color = Color(0.75, 0.82, 0.9, 1)
+ground_bottom_color = Color(0.05, 0.09, 0.14, 1)
+ground_horizon_color = Color(0.55, 0.65, 0.75, 1)
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("ProceduralSkyMaterial_1")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 0.35
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 3
+
+[node name="TerrainStage" type="Node3D"]
+script = ExtResource("1_stage")
+step = 2
+master_seed = 20261119
+
+[node name="TerrainMesh" type="MeshInstance3D" parent="."]
+script = ExtResource("2_mesh")
+flat_shaded = false
+sand_top = 6.5
+grass_end = 16.0
+rock_end = 24.0
+blend = 2.5
+
+[node name="Water" type="MeshInstance3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+light_energy_multiplier = 1.15
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.848048, 0.529919, 0, -0.529919, 0.848048, 0, 55, 95)
+current = true
+
+[node name="ChunkManager" type="Node3D" parent="."]
+script = ExtResource("3_mgr")
+terrain_material = ExtResource("5_splat")
+debug_tint_chunks = true
+player = NodePath("../PlayerRig")
+
+[node name="PlayerRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 40)
+script = ExtResource("4_fly")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerRig"]
+
+[node name="DebugUI" type="CanvasLayer" parent="."]
+
+[node name="HUDLabel" type="Label" parent="DebugUI"]
+visible = false
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 1000.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+text = "origin_offset (0, 0)"

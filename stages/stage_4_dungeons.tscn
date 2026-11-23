@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://dungeon/dungeon_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://dungeon/dungeon_builder.gd" id="2_builder"]
+[ext_resource type="Script" path="res://dungeon/dungeon_overlay.gd" id="3_overlay"]
+[ext_resource type="Script" path="res://dungeon/minimap.gd" id="4_minimap"]
+
+[node name="DungeonsStage" type="Node2D"]
+script = ExtResource("1_stage")
+step = 0
+master_seed = 20261119
+tour_index = 2
+
+[node name="Builder" type="Node2D" parent="."]
+position = Vector2(8, 76)
+script = ExtResource("2_builder")
+
+[node name="Overlay" type="Node2D" parent="."]
+position = Vector2(8, 76)
+script = ExtResource("3_overlay")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TitleLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 900.0
+offset_bottom = 36.0
+
+[node name="FlowLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 1264.0
+offset_bottom = 64.0
+
+[node name="LegendLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 68.0
+offset_right = 900.0
+offset_bottom = 92.0
+
+[node name="Minimap" type="Control" parent="UI"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 162.0
+grow_horizontal = 0
+script = ExtResource("4_minimap")

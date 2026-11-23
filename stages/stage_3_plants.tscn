@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://plants/plants_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://terrain/terrain_mesh.gd" id="2_mesh"]
+[ext_resource type="Script" path="res://plants/turtle_2d.gd" id="3_turtle2d"]
+[ext_resource type="Script" path="res://plants/turtle_3d.gd" id="4_turtle3d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
+sky_top_color = Color(0.25, 0.45, 0.75, 1)
+sky_horizon_color = Color(0.75, 0.82, 0.9, 1)
+ground_bottom_color = Color(0.05, 0.09, 0.14, 1)
+ground_horizon_color = Color(0.55, 0.65, 0.75, 1)
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("ProceduralSkyMaterial_1")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 0.35
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 3
+
+[node name="PlantsStage" type="Node3D"]
+script = ExtResource("1_stage")
+step = 2
+master_seed = 20261119
+scatter_min_dist = 3.4
+ecology_attempts = 2600
+
+[node name="TerrainMesh" type="MeshInstance3D" parent="."]
+script = ExtResource("2_mesh")
+flat_shaded = false
+sand_top = 6.5
+grass_end = 16.0
+rock_end = 24.0
+blend = 2.5
+
+[node name="Water" type="MeshInstance3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.848048, 0.529919, 0, -0.529919, 0.848048, 0, 58, 98)
+current = true
+
+[node name="ScatterDemo" type="Node3D" parent="."]
+
+[node name="Lab2D" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Turtle2D" type="Node2D" parent="Lab2D"]
+position = Vector2(576, 620)
+script = ExtResource("3_turtle2d")
+angle_degrees = 25.0
+segment_length = 6.0
+line_color = Color(0.45, 0.75, 0.35, 1)
+line_width = 2.0
+
+[node name="JitterRow" type="Node2D" parent="Lab2D"]
+visible = false
+
+[node name="Turtle1" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(90, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle2" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(220, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle3" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(350, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle4" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(480, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle5" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(610, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle6" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(740, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle7" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(870, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Turtle8" type="Node2D" parent="Lab2D/JitterRow"]
+position = Vector2(1000, 620)
+script = ExtResource("3_turtle2d")
+
+[node name="Lab3D" type="Node3D" parent="."]
+visible = false
+
+[node name="Turtle3D" type="Node3D" parent="Lab3D"]
+script = ExtResource("4_turtle3d")
+angle_degrees = 22.0
+segment_length = 0.35
+box_thickness = 0.045
+
+[node name="SkinnedPlant" type="MeshInstance3D" parent="Lab3D"]
+
+[node name="RecursivePlant" type="MeshInstance3D" parent="Lab3D"]
+
+[node name="SpeciesA" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="SpeciesB" type="MeshInstance3D" parent="Lab3D"]
+
+[node name="SpeciesC" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="TreeBall" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="TreeUmbrella" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="TreeCone" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="TreePruned" type="MeshInstance3D" parent="Lab3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="World" type="Node3D" parent="."]

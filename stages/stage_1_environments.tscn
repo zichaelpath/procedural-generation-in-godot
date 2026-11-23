@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://terrain/environments_stage.gd" id="1_stage"]
+
+[node name="EnvironmentsStage" type="Node2D"]
+script = ExtResource("1_stage")
+preview_size = 320
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Previews" type="GridContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="HeightPreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="MoisturePreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="BiomePreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="RulePreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="DisagreementPreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="FlowPreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="WatershedPreview" type="TextureRect" parent="UI/Previews"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+stretch_mode = 3

@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://offices/office_stage.gd" id="1_stage"]
+[ext_resource type="Script" path="res://houses/plan_viewer.gd" id="2_viewer"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(160, 160)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ground"]
+albedo_color = Color(0.45, 0.45, 0.45, 1)
+
+[node name="OfficeStage" type="Node3D"]
+script = ExtResource("1_stage")
+step = 0
+master_seed = 20261119
+
+[node name="PlanLab" type="CanvasLayer" parent="."]
+
+[node name="PlanViewer" type="Control" parent="PlanLab"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_viewer")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TitleLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 1264.0
+offset_bottom = 36.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="FlowLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 1264.0
+offset_bottom = 64.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="CertLabel" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 68.0
+offset_right = 1000.0
+offset_bottom = 500.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Tower" type="Node3D" parent="World"]
+
+[node name="Street" type="Node3D" parent="World"]
+
+[node name="CameraRig" type="Node3D" parent="World"]
+
+[node name="Camera" type="Camera3D" parent="World/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 20, 26)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="World"]
+rotation = Vector3(-0.872665, -0.523599, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -0.06, 0)
+mesh = SubResource("PlaneMesh_ground")
+surface_material_override/0 = SubResource("Mat_ground")

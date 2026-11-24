@@ -4,6 +4,17 @@
 - **Engine:** Godot 4.7.2, Forward+
 - **Layout mirrors the course's ProcGenWorld** so book, course, and project agree (PLAN.md §5).
 
+## Gallery — renders from the book
+
+![Step-10 city aerial](docs/images/ch41-overview-render.png)
+*The step-10 city from above (Chapter 41): five boroughs on separate territories, joined by connector roads — nothing overlaps.*
+
+![Borough boundary aerial](docs/images/ch41-boundary-aerial-render.png)
+*A borough boundary from the air: one grid ends, a green gap, then the neighbour's rotated grid begins.*
+
+![Capstone world aerial](docs/images/ch43-world-aerial-render.png)
+*The capstone world (Chapter 43): every generator in the book composed into one seed-grown world.*
+
 ## About this repository's history - please read first
 
 This repository's git history is **organized by book part** so readers can
@@ -42,6 +53,20 @@ identically.
 - `tools/` — the capture harness (`book_capture`) and X11 editor-capture helpers
 - `addons/book_stage/` — EditorPlugin that arranges a stage in the editor for ENGINE screenshots
 - `captures/` — default output folder for local captures (book images are copied to the book repo after verification)
+
+## City grading — the ground answers back (Chapter 42, §42.3)
+
+Cities are graded before their roads are drawn: `city/terrain_grader.gd`
+blends each borough's territory toward one reference height and benches
+every road corridor to a smoothed profile, so streets sit on level ground
+instead of draping raw terrain. The pair below is the book's own
+before/after — step 10, street road 31:
+
+![Before grading](docs/images/ch42-grading-before-render.png)
+*Before grading: the terrain poked through the road ribbon on road 31 (step 10).*
+
+![After grading](docs/images/ch42-grading-after-render.png)
+*After grading: the same crossing sits on one level bench.*
 
 ## Book rule
 Every generator draws randomness ONLY from its own named SeedBank stream.

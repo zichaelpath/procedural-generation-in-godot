@@ -234,7 +234,17 @@ func _register_road_edits() -> void:
 		var b: Vector2 = ends[1]
 		var ha: float = terrain._base_height_at(a.x, a.y)
 		var hb: float = terrain._base_height_at(b.x, b.y)
-		terrain.terrace_road_segment(a, b, 5.5, ha, hb, 6.0)
+		# Terrace width follows the ribbon it carries (fix round
+		# 2): the flat band must cover the whole ribbon plus a 2 m
+		# margin, or the ribbon's own edge rides the blend slope
+		# and the unedited ground pokes through it — avenues are
+		# 11 m wide, so the old one-width 5.5 m terrace left their
+		# edges unflattened. Streets: 3.5 + 2 = 5.5 (unchanged);
+		# avenues: 5.5 + 2 = 7.5. Blend stays 6.0 m.
+		var kind: String = String(
+			network.logic_roads[int(segment["road"])]["kind"])
+		var half: float = TerrainGrader.ribbon_half_width(kind) + 2.0
+		terrain.terrace_road_segment(a, b, half, ha, hb, 6.0)
 
 
 func _rebuild_edited_chunks() -> void:

@@ -77,6 +77,7 @@ func _build_step10() -> void:
 	city.add_diagonal_avenue()
 	city.add_connectors()
 	city.reserve_roads()
+	TerrainGrader.grade_city(_terrain, _network, city.borough_table())
 	_network.rebuild_segments()
 	_boroughs = city.borough_table()
 	_blocks = city.borough_blocks
@@ -117,6 +118,7 @@ func _build_step11() -> void:
 	if not route.is_empty():
 		_network.add_logic_road(route["points"], "highway")
 	city.reserve_roads()
+	TerrainGrader.grade_city(_terrain, _network, city.borough_table())
 	_network.rebuild_segments()
 	_boroughs = city.borough_table()
 	_blocks = city.borough_blocks

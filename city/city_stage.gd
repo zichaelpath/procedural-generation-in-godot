@@ -253,6 +253,13 @@ func regenerate() -> void:
 			city.add_connectors()
 			var reserve10: Dictionary = city.reserve_roads()
 			var overlaps10: int = city.count_block_overlaps()
+			# Terrain grading (fix round 2): the road set is final
+			# now — grade territories + corridors into the height
+			# grid, then rebuild the picture so mesh, ribbons,
+			# parcels and placement all read the graded surface.
+			TerrainGrader.grade_city(terrain, network,
+				city.borough_table())
+			_build_terrain_picture()
 			network.rebuild_segments()
 			print("step10 fix: connectors=", city.connector_routes.size(),
 				" reserve=", reserve10, " overlaps=", overlaps10)
@@ -304,6 +311,12 @@ func regenerate() -> void:
 			_route_south_shore_highway(assembler, downtown)
 			var reserve11: Dictionary = city11.reserve_roads()
 			var overlaps11: int = city11.count_block_overlaps()
+			# Terrain grading (fix round 2): as step 10 — grade
+			# the assembler's grid, then rebuild the picture this
+			# arm built above so only the graded picture is drawn.
+			TerrainGrader.grade_city(terrain, network,
+				city11.borough_table())
+			_build_terrain_picture()
 			network.rebuild_segments()
 			print("step11 fix: connectors=", city11.connector_routes.size(),
 				" reserve=", reserve11, " overlaps=", overlaps11)
